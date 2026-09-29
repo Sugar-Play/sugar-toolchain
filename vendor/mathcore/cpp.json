@@ -1,0 +1,17 @@
+{
+  "name": "mathcore",
+  "version": "1.2.0",
+  "type": "static",
+  "description": "High-performance mathematics static library",
+  "author": "MathCore Team",
+  "license": "MIT",
+  "includeDirs": [
+    "include"
+  ],
+  "libDirs": [
+    "lib"
+  ],
+  "libs": [
+    "mathcore.lib"
+  ]
+}

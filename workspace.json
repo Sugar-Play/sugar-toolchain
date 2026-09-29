@@ -1,0 +1,8 @@
+{
+  "name": "cpp-template-workspace",
+  "projects": [
+    "apps/*",
+    "libs/*",
+    "modules/*"
+  ]
+}

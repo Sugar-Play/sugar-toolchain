@@ -1,0 +1,31 @@
+{
+  "name": "cpp-template-app",
+  "version": "1.0.0",
+  "type": "exe",
+  "description": "Modern C++ template project with TypeScript compile toolchain",
+  "author": "Hamim Ally",
+  "license": "MIT",
+  "compiler": "auto",
+  "std": "c++20",
+  "optimization": "O2",
+  "debug": false,
+  "warnings": "default",
+  "warningsAsErrors": false,
+  "srcDir": "src",
+  "vendorDir": "vendor",
+  "targetDir": "target",
+  "binDir": "target/bin",
+  "objectDir": "target/object",
+  "libDir": "target/lib",
+  "autoDiscoverVendor": true,
+  "copyDlls": true,
+  "output": "target/bin/app.exe",
+  "sources": [
+    "src/**/*.cpp"
+  ],
+  "includeDirs": [],
+  "libDirs": [],
+  "libs": [],
+  "defines": [],
+  "customFlags": []
+}

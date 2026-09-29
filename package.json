@@ -1,0 +1,47 @@
+{
+  "name": "sugarpp",
+  "version": "2.0.0",
+  "description": "Sugar++ — The sweet, zero-config C++ build engine & workspace tool. No bitter CMake.",
+  "type": "module",
+  "main": "vscode-extension/bundled/sugar.cjs",
+  "bin": {
+    "spp": "vscode-extension/bundled/sugar.cjs",
+    "s++": "vscode-extension/bundled/sugar.cjs"
+  },
+  "scripts": {
+    "build": "node vscode-extension/bundled/sugar.cjs build",
+    "start": "node vscode-extension/bundled/sugar.cjs run",
+    "run": "node vscode-extension/bundled/sugar.cjs run",
+    "package": "node vscode-extension/bundled/sugar.cjs package",
+    "workspace": "node vscode-extension/bundled/sugar.cjs workspace",
+    "watch": "node vscode-extension/bundled/sugar.cjs watch --run",
+    "clean": "node vscode-extension/bundled/sugar.cjs build --clean",
+    "compilers": "node vscode-extension/bundled/sugar.cjs list-compilers",
+    "typecheck": "tsc -p vscode-extension/engine/tsconfig.json --noEmit",
+    "bundle:engine": "npm --prefix vscode-extension run bundle-engine",
+    "ext:compile": "npm --prefix vscode-extension run compile",
+    "ext:package": "cd vscode-extension && npx @vscode/vsce package --no-git-tag-version --no-dependencies && cd ..",
+    "ext:install": "code --install-extension vscode-extension/sugarpp-vscode-1.0.0.vsix"
+  },
+  "keywords": [
+    "sugar",
+    "sugarpp",
+    "spp",
+    "cpp",
+    "c++",
+    "compiler",
+    "toolchain",
+    "build-tool",
+    "msvc",
+    "gcc",
+    "clang",
+    "cli"
+  ],
+  "author": "Hamim Ally",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "tsx": "^4.23.13",
+    "typescript": "^5.7.2"
+  }
+}

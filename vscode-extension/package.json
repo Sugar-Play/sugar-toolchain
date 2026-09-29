@@ -1,0 +1,291 @@
+{
+  "name": "sugarpp-vscode",
+  "displayName": "Sugar++ C/C++ Build Tools",
+  "description": "Zero-config Visual Studio style build, run, and debug tools for C/C++ using Sugar++",
+  "version": "1.0.0",
+  "publisher": "sugarpp",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Programming Languages",
+    "Build Systems",
+    "Debuggers"
+  ],
+  "keywords": [
+    "cpp",
+    "c++",
+    "c",
+    "build",
+    "compiler",
+    "visual studio",
+    "sugarpp",
+    "msvc",
+    "gcc",
+    "clang"
+  ],
+  "activationEvents": [
+    "onStartupFinished",
+    "workspaceContains:cpp.json",
+    "workspaceContains:workspace.json",
+    "onLanguage:cpp",
+    "onLanguage:c",
+    "onCommand:sugarpp.build",
+    "onCommand:sugarpp.run",
+    "onCommand:sugarpp.debug",
+    "onCommand:sugarpp.selectProfile",
+    "onCommand:sugarpp.selectCompiler"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "sugarpp.openCustomPopup",
+        "title": "Sugar++: Open Visual Studio Configuration",
+        "category": "Sugar++",
+        "icon": "$(tools)"
+      },
+      {
+        "command": "sugarpp.showMenu",
+        "title": "Sugar++: Open Menu",
+        "category": "Sugar++",
+        "icon": "$(tools)"
+      },
+      {
+        "command": "sugarpp.newProject",
+        "title": "Sugar++: Add New Project / Executable Target (apps/*)",
+        "category": "Sugar++",
+        "icon": "$(new-folder)"
+      },
+      {
+        "command": "sugarpp.selectTargetType",
+        "title": "Sugar++: Select Target Output Type (.exe / .lib / .dll)",
+        "category": "Sugar++",
+        "icon": "$(symbol-structure)"
+      },
+      {
+        "command": "sugarpp.addSourceFile",
+        "title": "Sugar++: Add Source File (.cpp)",
+        "category": "Sugar++",
+        "icon": "$(add)"
+      },
+      {
+        "command": "sugarpp.addHeaderFile",
+        "title": "Sugar++: Add Header File (.hpp)",
+        "category": "Sugar++",
+        "icon": "$(add)"
+      },
+      {
+        "command": "sugarpp.addClass",
+        "title": "Sugar++: Add New C++ Class",
+        "category": "Sugar++",
+        "icon": "$(symbol-class)"
+      },
+      {
+        "command": "sugarpp.build",
+        "title": "Sugar++: Build",
+        "category": "Sugar++",
+        "icon": "$(gear)"
+      },
+      {
+        "command": "sugarpp.run",
+        "title": "Sugar++: Run Executable",
+        "category": "Sugar++",
+        "icon": "$(play)"
+      },
+      {
+        "command": "sugarpp.debug",
+        "title": "Sugar++: Debug Executable",
+        "category": "Sugar++",
+        "icon": "$(bug)"
+      },
+      {
+        "command": "sugarpp.clean",
+        "title": "Sugar++: Clean Build Artifacts",
+        "category": "Sugar++",
+        "icon": "$(trash)"
+      },
+      {
+        "command": "sugarpp.rebuild",
+        "title": "Sugar++: Rebuild (Clean & Build)",
+        "category": "Sugar++",
+        "icon": "$(refresh)"
+      },
+      {
+        "command": "sugarpp.selectProfile",
+        "title": "Sugar++: Select Build Profile",
+        "category": "Sugar++"
+      },
+      {
+        "command": "sugarpp.selectCompiler",
+        "title": "Sugar++: Select Compiler",
+        "category": "Sugar++"
+      },
+      {
+        "command": "sugarpp.selectProject",
+        "title": "Sugar++: Select Target Project",
+        "category": "Sugar++"
+      },
+      {
+        "command": "sugarpp.package",
+        "title": "Sugar++: Package Project (Dist)",
+        "category": "Sugar++",
+        "icon": "$(package)"
+      },
+      {
+        "command": "sugarpp.toggleWatch",
+        "title": "Sugar++: Toggle Watch Mode",
+        "category": "Sugar++",
+        "icon": "$(eye)"
+      },
+      {
+        "command": "sugarpp.init",
+        "title": "Sugar++: Initialize Configuration (cpp.json)",
+        "category": "Sugar++"
+      },
+      {
+        "command": "sugarpp.showOutput",
+        "title": "Sugar++: Show Build Output Channel",
+        "category": "Sugar++"
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "sugarpp.build",
+        "key": "ctrl+shift+b",
+        "mac": "cmd+shift+b",
+        "when": "sugarpp:hasProject"
+      },
+      {
+        "command": "sugarpp.run",
+        "key": "ctrl+f5",
+        "mac": "cmd+f5",
+        "when": "sugarpp:hasProject"
+      },
+      {
+        "command": "sugarpp.debug",
+        "key": "f5",
+        "when": "sugarpp:hasProject && !inDebugMode"
+      }
+    ],
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "sugarpp-explorer",
+          "title": "Sugar++",
+          "icon": "resources/sugar.svg"
+        }
+      ]
+    },
+    "views": {
+      "sugarpp-explorer": [
+        {
+          "id": "sugarpp.projectExplorer",
+          "title": "Project Explorer",
+          "type": "tree"
+        }
+      ],
+      "explorer": [
+        {
+          "id": "sugarpp.projectExplorerSide",
+          "title": "Sugar++ Project",
+          "type": "tree"
+        }
+      ]
+    },
+    "menus": {
+      "view/title": [
+        {
+          "command": "sugarpp.build",
+          "when": "view == sugarpp.projectExplorer || view == sugarpp.projectExplorerSide",
+          "group": "navigation@1"
+        },
+        {
+          "command": "sugarpp.run",
+          "when": "view == sugarpp.projectExplorer || view == sugarpp.projectExplorerSide",
+          "group": "navigation@2"
+        },
+        {
+          "command": "sugarpp.debug",
+          "when": "view == sugarpp.projectExplorer || view == sugarpp.projectExplorerSide",
+          "group": "navigation@3"
+        },
+        {
+          "command": "sugarpp.rebuild",
+          "when": "view == sugarpp.projectExplorer || view == sugarpp.projectExplorerSide",
+          "group": "navigation@4"
+        }
+      ],
+      "editor/context": [
+        {
+          "command": "sugarpp.build",
+          "when": "resourceExtname =~ /\\.(cpp|cxx|cc|c|hpp|h)$/ && sugarpp:hasProject",
+          "group": "1_sugarpp@1"
+        },
+        {
+          "command": "sugarpp.run",
+          "when": "resourceExtname =~ /\\.(cpp|cxx|cc|c|hpp|h)$/ && sugarpp:hasProject",
+          "group": "1_sugarpp@2"
+        },
+        {
+          "command": "sugarpp.debug",
+          "when": "resourceExtname =~ /\\.(cpp|cxx|cc|c|hpp|h)$/ && sugarpp:hasProject",
+          "group": "1_sugarpp@3"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "Sugar++",
+      "properties": {
+        "sugarpp.defaultProfile": {
+          "type": "string",
+          "enum": [
+            "release",
+            "debug",
+            "relwithdebinfo",
+            "minsizerel"
+          ],
+          "default": "release",
+          "description": "Default build profile for Sugar++"
+        },
+        "sugarpp.defaultCompiler": {
+          "type": "string",
+          "enum": [
+            "auto",
+            "msvc",
+            "gcc",
+            "clang"
+          ],
+          "default": "auto",
+          "description": "C++ compiler to use"
+        },
+        "sugarpp.cliPath": {
+          "type": "string",
+          "default": "",
+          "description": "Optional custom path to the Sugar++ CLI or script/sugar.js"
+        },
+        "sugarpp.showStatusBar": {
+          "type": "boolean",
+          "default": true,
+          "description": "Show Visual Studio style build, run, debug, and profile buttons in the status bar"
+        },
+        "sugarpp.clearOutputBeforeBuild": {
+          "type": "boolean",
+          "default": true,
+          "description": "Clear the Sugar++ output channel before every build"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile && npm run bundle-engine",
+    "compile": "tsc -p ./",
+    "bundle-engine": "esbuild engine/sugar.ts --bundle --platform=node --target=node18 --format=cjs --outfile=bundled/sugar.cjs",
+    "watch": "tsc -watch -p ./"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "@types/vscode": "^1.85.0",
+    "typescript": "^5.7.2"
+  }
+}

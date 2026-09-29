@@ -1,0 +1,11 @@
+{
+  "name": "fastlog",
+  "version": "1.0.0",
+  "type": "header-only",
+  "description": "Fast lightweight header-only logging library",
+  "author": "FastLog Contributors",
+  "license": "MIT",
+  "includeDirs": [
+    "include"
+  ]
+}

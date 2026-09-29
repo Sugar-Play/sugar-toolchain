@@ -1,0 +1,14 @@
+node_modules/
+dist/
+script/dist/
+build/
+target/
+*.obj
+*.o
+*.exe
+*.pdb
+*.ilk
+*.idb
+*.exp
+.vscode/
+.idea/
